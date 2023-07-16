@@ -174,53 +174,49 @@ function isUserLoggedIn() {
   
     var productTableBody = document.getElementById('productTableBody');
   
-    var products = [
-      { id: 1, nombre: 'Leche', precio: 2.50 },
-      { id: 2, nombre: 'Pan', precio: 1.00 },
-      { id: 3, nombre: 'Huevos', precio: 3.50 },
-      { id: 4, nombre: 'Arroz', precio: 2.00 },
-      { id: 5, nombre: 'Azúcar', precio: 1.50 }
-    ];
+    // Realizar una solicitud HTTP para obtener los datos de productos
+    fetch('dummyApi/data.json')
+      .then(response => response.json())
+      .then(data => {
+        var productos = data.productos;
+        productos.forEach(producto => {
+          var row = document.createElement('tr');
+          var idCell = document.createElement('td');
+          var nombreCell = document.createElement('td');
+          var precioCell = document.createElement('td');
+          var addButtonCell = document.createElement('td');
+          var addButton = document.createElement('button');
   
-    for (var i = 0; i < products.length; i++) {
-      var row = document.createElement('tr');
-      var idCell = document.createElement('td');
-      var nombreCell = document.createElement('td');
-      var precioCell = document.createElement('td');
-      var addButtonCell = document.createElement('td');
-      var addButton = document.createElement('button');
+          idCell.textContent = producto.id;
+          nombreCell.textContent = producto.nombre;
+          precioCell.textContent = '$' + producto.precio.toFixed(2);
+          addButton.textContent = 'Agregar';
   
-      idCell.textContent = products[i].id;
-      nombreCell.textContent = products[i].nombre;
-      precioCell.textContent = '$' + products[i].precio.toFixed(2);
-      addButton.textContent = 'Agregar';
+          addButton.addEventListener('click', function() {
+            var cantidad = prompt('Ingrese la cantidad:');
+            if (cantidad !== null && cantidad !== '') {
+              cantidad = parseInt(cantidad);
+              if (!isNaN(cantidad) && cantidad > 0) {
+                addToCart(producto.id, producto.nombre, producto.precio, cantidad);
+                showModal('Producto agregado: ' + producto.nombre + '\nCantidad: ' + cantidad);
+              } else {
+                showModal('Ingrese una cantidad válida.');
+              }
+            }
+          });
   
-      addButton.addEventListener('click', function() {
-        var cantidad = prompt('Ingrese la cantidad:');
-        if (cantidad !== null && cantidad !== '') {
-          cantidad = parseInt(cantidad);
-          if (!isNaN(cantidad) && cantidad > 0) {
-            var producto = {
-              id: this.parentNode.parentNode.cells[0].textContent,
-              nombre: this.parentNode.parentNode.cells[1].textContent,
-              precio: parseFloat(this.parentNode.parentNode.cells[2].textContent.substring(1))
-            };
-            addToCart(producto.id, producto.nombre, producto.precio, cantidad);
-            showModal('Producto agregado: ' + producto.nombre + '\nCantidad: ' + cantidad);
-          } else {
-            showModal('Ingrese una cantidad válida.');
-          }
-        }
+          row.appendChild(idCell);
+          row.appendChild(nombreCell);
+          row.appendChild(precioCell);
+          addButtonCell.appendChild(addButton);
+          row.appendChild(addButtonCell);
+  
+          productTableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.log('Error al obtener los datos del archivo JSON:', error);
       });
-  
-      row.appendChild(idCell);
-      row.appendChild(nombreCell);
-      row.appendChild(precioCell);
-      addButtonCell.appendChild(addButton);
-  
-      row.appendChild(addButtonCell);
-      productTableBody.appendChild(row);
-    }
   
     loadCartFromLocalStorage();
   }

@@ -1,0 +1,9 @@
+{
+    "productos": [
+      { "id": 1, "nombre": "Leche", "precio": 2.5 },
+      { "id": 2, "nombre": "Pan", "precio": 1 },
+      { "id": 3, "nombre": "Huevos", "precio": 3.5 },
+      { "id": 4, "nombre": "Arroz", "precio": 2 },
+      { "id": 5, "nombre": "Azúcar", "precio": 1.5 }
+    ]
+  }
