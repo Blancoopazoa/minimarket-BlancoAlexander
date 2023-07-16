@@ -1,0 +1,106 @@
+h1, h2, h3 {
+    text-align: center;
+}
+
+form, table {
+    margin: 0px auto;
+    width: 150px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#productContainer {
+    margin-top: 30px;
+}
+
+#loginContainer {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#carritoContainer {
+    margin-top: 30px;
+}
+
+#carritoContent {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .modal-content p {
+    margin-bottom: 10px;
+  }
+  
+  .modal-content table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .modal-content th,
+  .modal-content td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal-content th {
+    background-color: #f2f2f2;
+  }
+  
+  .modal-content tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  #payButton {
+    display: block;
+    margin: 0 auto;
+  }

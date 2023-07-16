@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimarket</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Minimarket</h1>
+    <div id="loginContainer">
+        <h2>Iniciar sesión</h2>
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+            <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+            <br>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+
+    <div id="productContainer" style="display: none;">
+        <h2>Productos</h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="cartContainer" style="display: none;">
+        <h2>Carrito de compra</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+            </tbody>
+        </table>
+        <button id="payButton">Pagar</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+            <button class="modal-close">Cerrar</button>
+        </div>
+    </div>
+
+    <button id="logoutButton" style="display: none;">Cerrar sesión</button>
+
+    <script src="function.js"></script>
+</body>
+</html>
