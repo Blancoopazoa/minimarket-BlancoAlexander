@@ -2,6 +2,10 @@
 
 Este es un proyecto de un minimarket realizado para la entrega final.
 
+## Usuario
+Username: Alexander
+Password: 1234
+
 ## Instalación
 
 1. Clona este repositorio en tu máquina local.
